@@ -11,5 +11,6 @@ pagesRouter.get('/hw', (req: Request, res: Response) => {
   res.render('hw');
 });
 
+export { pagesRouter };
 
-module.exports = pagesRouter;
+// module.exports = pagesRouter;

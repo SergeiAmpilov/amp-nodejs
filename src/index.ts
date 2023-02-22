@@ -1,15 +1,14 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const exphbs = require('express-handlebars');
-const pagesRouter = require("./routes/pages");
+import express from 'express';
+import mongoose from 'mongoose';
+import path from 'path';
+import { pagesRouter } from './routes/pages';
 
+const exphbs = require('express-handlebars');
 
 
 const app = express();
 const {PORT = 3000} =  process.env;
 app.use(express.static(path.join(__dirname, '/public')));
-
 
 
 mongoose.set("strictQuery", false);
@@ -30,7 +29,7 @@ async function start() {
   try {
     await mongoose.connect('mongodb://127.0.0.1:27017/ampdb')
     app.listen(PORT, () => {
-      console.log(`Server has been started on port ${PORT}`)
+      console.log(`Server has been started on port ${PORT} !`)
     });
   } catch (e) {
     console.log(`Error ${e}`);

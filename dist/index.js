@@ -8,15 +8,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const mongoose_1 = __importDefault(require("mongoose"));
+const path_1 = __importDefault(require("path"));
+const pages_1 = require("./routes/pages");
 const exphbs = require('express-handlebars');
-const pagesRouter = require("./routes/pages");
-const app = express();
+const app = (0, express_1.default)();
 const { PORT = 3000 } = process.env;
-app.use(express.static(path.join(__dirname, '/public')));
-mongoose.set("strictQuery", false);
+app.use(express_1.default.static(path_1.default.join(__dirname, '/public')));
+mongoose_1.default.set("strictQuery", false);
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: 'hbs'
@@ -24,13 +28,13 @@ const hbs = exphbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', 'views');
-app.use(pagesRouter);
+app.use(pages_1.pagesRouter);
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            yield mongoose.connect('mongodb://127.0.0.1:27017/ampdb');
+            yield mongoose_1.default.connect('mongodb://127.0.0.1:27017/ampdb');
             app.listen(PORT, () => {
-                console.log(`Server has been started on port ${PORT}`);
+                console.log(`Server has been started on port ${PORT} !`);
             });
         }
         catch (e) {
