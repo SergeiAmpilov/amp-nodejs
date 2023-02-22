@@ -1,0 +1,30 @@
+{
+  "name": "19-amp-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergeiAmpilov/amp-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergeiAmpilov/amp-nodejs/issues"
+  },
+  "homepage": "https://github.com/SergeiAmpilov/amp-nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "mongoose": "^6.9.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
